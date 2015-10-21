@@ -14,7 +14,6 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.content,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -81,7 +80,6 @@ body {
 
   /* Remove the padding we set earlier */
   .header,
-  .content,
   .footer {
     padding-left: 0;
     padding-right: 0;

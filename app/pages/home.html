@@ -2,13 +2,16 @@
 	<div class="cta">
 		<h1>T73.biz</h1>
 		<p>
-			A technological testament of tutorials, teachings and training through the trials and tribulations of a technologist.
+			A technological testament of tutorials, teachings and training through the trials, tribulations and triumphs of a technologist.
 		</p>
 	</div>
 </div>
 
 <div class="row content">
 	<div class="col-sm-12">
-		<p>Check out my latest articles within the articles section of the site.</p>
+		<p>Check out my list of articles.</p>
+		<ul>
+			<li ng-repeat="article in articles"><a ui-sref="{{article.href}}">{{article.title}}</a></li>
+		</ul>
 	</div>
 </div>
