@@ -9,11 +9,12 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: #333;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
+.content,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
@@ -22,14 +23,14 @@ body {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
+  background-color: #021D27;
 }
 
-/* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
-  padding-bottom: 19px;
+  padding-left: 20px;
 }
 
 /* Custom page footer */
@@ -47,20 +48,29 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
+  background-image: url(/images/t73-cover-500-scaled-morse-1.png);
+  background-repeat: no-repeat;
+  background-size: 700px 300px;
 }
 
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
+.jumbotron .cta {
+    color: #fff;
+    background-color: rgba(6, 75, 100, 0.749);
 }
 
-/* Supporting marketing content */
-.marketing {
+.content {
   margin: 40px 0;
+  background-color: #ddd;
+  border-radius: 25px;
+  padding: 25px;
 }
 
-.marketing p + h4 {
+.content p + h4 {
   margin-top: 28px;
+}
+
+.ui-sref {
+    cursor: pointer;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -71,7 +81,7 @@ body {
 
   /* Remove the padding we set earlier */
   .header,
-  .marketing,
+  .content,
   .footer {
     padding-left: 0;
     padding-right: 0;
