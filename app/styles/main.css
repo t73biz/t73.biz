@@ -95,3 +95,10 @@ body {
     border-bottom: 0;
   }
 }
+
+/* Responsive: Wider screen devices. */
+@media screen and (min-width: 1024px) {
+    .container {
+      max-width: 1000px;
+    }
+}
