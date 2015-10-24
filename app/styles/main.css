@@ -30,6 +30,7 @@ body {
   margin-bottom: 0;
   line-height: 40px;
   padding-left: 20px;
+  display: inline;
 }
 
 /* Custom page footer */
@@ -70,6 +71,14 @@ body {
 
 .ui-sref {
     cursor: pointer;
+}
+
+.follow {
+    margin-left: 25px;
+}
+
+.dropdown {
+    margin: 3px;
 }
 
 /* Responsive: Portrait tablets and up */

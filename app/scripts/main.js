@@ -1,8 +1,3 @@
-var mainApp = angular.module('mainApp', ['ui.router']);
-
-mainApp.config(function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/home");
-
 var articleList = [
 	{
 		href: "bootstrap-alert-plugin",
@@ -22,13 +17,18 @@ var articleList = [
 	}
 ];
 
+var mainApp = angular.module('mainApp', ['ui.router', 'social']);
+
+mainApp.config(function($stateProvider, $urlRouterProvider) {
+	$urlRouterProvider.otherwise("/home");
+
 	// Now set up the states
-$stateProvider
+	$stateProvider
 	.state('home', {
 		url: "/home",
 		templateUrl: "pages/home.html",
-		controller: function($scope) {
-			$scope.articles = articleList;
+		controller: function($scope, $window) {
+			$scope.articles = $window.articleList;
 		}
 	})
 	.state('about', {
@@ -56,3 +56,10 @@ $stateProvider
 		templateUrl: "pages/articles/translocation-bundle.html"
 	})
 });
+
+mainApp.controller('MainController', ['$location', '$scope', '$window', function($location, $scope, $window) {
+	$scope.articleList = $window.articleList;
+	$scope.$on('$viewContentLoaded', function(event) {
+    	$window.ga('send', 'pageview', { page: $location.url() });
+	});
+}]);
