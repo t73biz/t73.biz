@@ -17,7 +17,7 @@ var articleList = [
 	}
 ];
 
-var mainApp = angular.module('mainApp', ['ui.router']);
+var mainApp = angular.module('mainApp', ['ui.router', 'social']);
 
 mainApp.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise("/home");
