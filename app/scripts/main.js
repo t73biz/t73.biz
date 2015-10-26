@@ -8,6 +8,10 @@ var articleList = [
 		title: "Cakephp 3 Maintenance Mode Tutorial"
 	},
 	{
+		href: 'freelancing-with-toptal',
+		title: 'Freelancing with Toptal'
+	},
+	{
 		href: "sitepoint-versioning-newsletter",
 		title: "Sitepoint Versioning Newsletter"
 	},
@@ -46,6 +50,10 @@ mainApp.config(function($stateProvider, $urlRouterProvider) {
 	.state('cakephp-3-maintenance-mode', {
 		url: "/cakephp-3-maintenance-mode",
 		templateUrl: "pages/articles/cakephp-3-maintenance-mode.html"
+	})
+	.state('freelancing-with-toptal', {
+		url: "/freelancing-with-toptal",
+		templateUrl: "pages/articles/freelancing-with-toptal.html"
 	})
 	.state('sitepoint-versioning-newsletter', {
 		url: "/sitepoint-versioning-newsletter",
