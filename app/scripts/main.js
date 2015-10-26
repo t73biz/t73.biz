@@ -45,15 +45,30 @@ mainApp.config(function($stateProvider, $urlRouterProvider) {
 	})
 	.state('bootstrap-alert-plugin', {
 		url: "/bootstrap-alert-plugin",
-		templateUrl: "pages/articles/bootstrap-alert-plugin.html"
+		templateUrl: "pages/articles/bootstrap-alert-plugin.html",
+		controller: function($scope) {
+			$scope.social = {
+				href: "http://t73.biz/#/bootstrap-alert-plugin"
+			};
+		}
 	})
 	.state('cakephp-3-maintenance-mode', {
 		url: "/cakephp-3-maintenance-mode",
-		templateUrl: "pages/articles/cakephp-3-maintenance-mode.html"
+		templateUrl: "pages/articles/cakephp-3-maintenance-mode.html",
+		controller: function($scope) {
+			$scope.social = {
+				href: "http://t73.biz/#/cakephp-3-maintenance-mode"
+			};
+		}
 	})
 	.state('freelancing-with-toptal', {
 		url: "/freelancing-with-toptal",
-		templateUrl: "pages/articles/freelancing-with-toptal.html"
+		templateUrl: "pages/articles/freelancing-with-toptal.html",
+		controller: function($scope) {
+			$scope.social = {
+				href: "http://t73.biz/#/freelancing-with-toptal"
+			};
+		}
 	})
 	.state('sitepoint-versioning-newsletter', {
 		url: "/sitepoint-versioning-newsletter",
@@ -73,7 +88,6 @@ mainApp.controller('MainController', [
 	function($location, $scope, $state, $window) {
 		$scope.articleList = $window.articleList;
 		$scope.$on('$viewContentLoaded', function(event) {
-			$scope.hrefCurrent = $state.current.url;
 	    	$window.ga('send', 'pageview', { page: $location.url() });
 		});
 	}
