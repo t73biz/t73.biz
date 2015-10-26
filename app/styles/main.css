@@ -48,9 +48,7 @@ body {
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-  background-image: url(/images/t73-cover-500-scaled-morse-1.png);
-  background-repeat: no-repeat;
-  background-size: 700px 300px;
+  background-image: url(/images/php-code.jpg);
 }
 
 .jumbotron .cta {
