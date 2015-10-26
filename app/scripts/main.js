@@ -65,9 +65,16 @@ mainApp.config(function($stateProvider, $urlRouterProvider) {
 	})
 });
 
-mainApp.controller('MainController', ['$location', '$scope', '$window', function($location, $scope, $window) {
-	$scope.articleList = $window.articleList;
-	$scope.$on('$viewContentLoaded', function(event) {
-    	$window.ga('send', 'pageview', { page: $location.url() });
-	});
-}]);
+mainApp.controller('MainController', [
+	'$location',
+	'$scope',
+	'$state',
+	'$window',
+	function($location, $scope, $state, $window) {
+		$scope.articleList = $window.articleList;
+		$scope.$on('$viewContentLoaded', function(event) {
+			$scope.hrefCurrent = $state.current.url;
+	    	$window.ga('send', 'pageview', { page: $location.url() });
+		});
+	}
+]);

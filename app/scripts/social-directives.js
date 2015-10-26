@@ -1,6 +1,7 @@
 /**
  * AngularJS directives for social sharing buttons - Facebook Like, Google+, Twitter and Pinterest
  * @author Jason Watmore <jason@pointblankdevelopment.com.au> (http://jasonwatmore.com)
+ * @author Ronald Chaplin <rchaplin@t73.biz> (http://t73.biz)
  * @version 1.2.0
  */
 (function () {
