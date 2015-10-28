@@ -11,7 +11,7 @@
 	<div class="col-sm-12">
 		<p>Check out my list of articles.</p>
 		<ul>
-			<li ng-repeat="article in articles"><a ui-sref="{{article.href}}">{{article.title}}</a></li>
+			<li ng-repeat="article in articleList"><a class="ui-sref" ui-sref="posts({articleName:article})">{{article|humanize}}</a></li>
 		</ul>
 	</div>
 </div>

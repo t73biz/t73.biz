@@ -1,94 +1,50 @@
-var articleList = [
-	{
-		href: "bootstrap-alert-plugin",
-		title: "Bootstrap Alert Plugin"
-	},
-	{
-		href: "cakephp-3-maintenance-mode",
-		title: "Cakephp 3 Maintenance Mode Tutorial"
-	},
-	{
-		href: 'freelancing-with-toptal',
-		title: 'Freelancing with Toptal'
-	},
-	{
-		href: "sitepoint-versioning-newsletter",
-		title: "Sitepoint Versioning Newsletter"
-	},
-	{
-		href: "translocation-bundle",
-		title: "Translocation Bundle"
-	}
-];
 
-var mainApp = angular.module('mainApp', ['ui.router', 'social']);
+var mainApp = angular.module('mainApp', ['disqus', 'ui.router', 'social', 'yaru22.md'])
+.config(
+	[
+		'$locationProvider',
+		'$stateProvider',
+		'$urlRouterProvider',
+		function($locationProvider, $stateProvider, $urlRouterProvider) {
 
-mainApp.config(function($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise("/home");
+			$urlRouterProvider
+				.when("/bootstrap-alert-plugin", '/posts/bootstrap-alert-plugin')
+				.when("/cakephp-3-maintenance-mode", '/posts/cakephp-3-maintenance-mode')
+				.when('/freelancing-with-toptal',	'/posts/freelancing-with-toptal')
+				.when("/sitepoint-versioning-newsletter", '/posts/sitepoint-versioning-newsletter')
+				.when("/translocation-bundle", '/posts/symfony-2-translocation-bundle')
+				.otherwise("/");
+			$locationProvider.html5Mode(true);
 
-	// Now set up the states
-	$stateProvider
-	.state('home', {
-		url: "/home",
-		templateUrl: "pages/home.html",
-		controller: function($scope, $window) {
-			$scope.articles = $window.articleList;
+			// Now set up the states
+			$stateProvider
+			.state('home', {
+				url: "/",
+				templateUrl: "pages/home.html"
+			})
+			.state('about', {
+				url: "/about",
+				templateUrl: "pages/about.html"
+			})
+			.state('contact', {
+				url: "/contact",
+				templateUrl: "pages/contact.html"
+			})
+			.state('posts', {
+				url: "/posts/:articleName",
+				templateUrl: "pages/post.html",
+				controller: "PostsController",
+			})
+
 		}
-	})
-	.state('about', {
-		url: "/about",
-		templateUrl: "pages/about.html"
-	})
-	.state('contact', {
-		url: "/contact",
-		templateUrl: "pages/contact.html"
-	})
-	.state('bootstrap-alert-plugin', {
-		url: "/bootstrap-alert-plugin",
-		templateUrl: "pages/articles/bootstrap-alert-plugin.html",
-		controller: function($scope) {
-			$scope.social = {
-				href: "http://t73.biz/#/bootstrap-alert-plugin"
-			};
+	]
+)
+.filter('humanize', function() {
+	return function(slug) {
+		if(slug){
+			return slug.split("-").map(function(word) {
+				return word.charAt(0).toUpperCase() + word.substring(1).toLowerCase();
+			}).join(' ');
 		}
-	})
-	.state('cakephp-3-maintenance-mode', {
-		url: "/cakephp-3-maintenance-mode",
-		templateUrl: "pages/articles/cakephp-3-maintenance-mode.html",
-		controller: function($scope) {
-			$scope.social = {
-				href: "http://t73.biz/#/cakephp-3-maintenance-mode"
-			};
-		}
-	})
-	.state('freelancing-with-toptal', {
-		url: "/freelancing-with-toptal",
-		templateUrl: "pages/articles/freelancing-with-toptal.html",
-		controller: function($scope) {
-			$scope.social = {
-				href: "http://t73.biz/#/freelancing-with-toptal"
-			};
-		}
-	})
-	.state('sitepoint-versioning-newsletter', {
-		url: "/sitepoint-versioning-newsletter",
-		templateUrl: "pages/articles/sitepoint-versioning-newsletter.html"
-	})
-	.state('translocation-bundle', {
-		url: "/translocation-bundle",
-		templateUrl: "pages/articles/translocation-bundle.html"
-	})
+	};
 });
-
-mainApp.controller('MainController', [
-	'$location',
-	'$scope',
-	'$state',
-	'$window',
-	function($location, $scope, $state, $window) {
-		$scope.articleList = $window.articleList;
-		$scope.$on('$viewContentLoaded', function(event) {
-	    	$window.ga('send', 'pageview', { page: $location.url() });
-		});
-	}
-]);
