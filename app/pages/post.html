@@ -1,0 +1,23 @@
+<div class="jumbotron">
+	<div class="cta">
+		<h1>{{post.title|humanize}}</h1>
+		<md ng-model="post.tagline"></md>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-1" google-plus="google.url"></div>
+	<div class="col-sm-1" tweet-url="twitter.url" tweet="twitter.msg"></div>
+</div>
+
+<div class="row content">
+	<md ng-model="post.content"></md>
+</div>
+
+<div class="row content" ng-show="disqus">
+	<dir-disqus disqus-shortname="{{disqus.shortname}}"
+	         disqus-identifier="{{disqus.identifier}}"
+	         disqus-url="{{disqus.url}}"
+	         ready-to-bind="{{ contentLoaded }}">
+	</dir-disqus>
+</div>

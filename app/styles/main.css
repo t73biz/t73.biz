@@ -53,7 +53,12 @@ body {
 
 .jumbotron .cta {
     color: #fff;
-    background-color: rgba(6, 75, 100, 0.749);
+    background-color: rgba(6, 75, 100, 0.90);
+    border-radius: 10px;
+}
+
+.jumbotron h1 {
+    font-size: 300%;
 }
 
 .content {
