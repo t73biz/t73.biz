@@ -1,5 +1,5 @@
 
-var mainApp = angular.module('mainApp', ['disqus', 'ui.router', 'social', 'yaru22.md'])
+var mainApp = angular.module('mainApp', ['disqus', 'dirTerminalType', 'matrix', 'ui.router', 'social', 'yaru22.md'])
 .config(
 	[
 		'$locationProvider',
@@ -13,7 +13,8 @@ var mainApp = angular.module('mainApp', ['disqus', 'ui.router', 'social', 'yaru2
 				.when('/freelancing-with-toptal',	'/posts/freelancing-with-toptal')
 				.when("/sitepoint-versioning-newsletter", '/posts/sitepoint-versioning-newsletter')
 				.when("/translocation-bundle", '/posts/symfony-2-translocation-bundle')
-				.otherwise("/");
+				.otherwise("/404");
+
 			$locationProvider.html5Mode(true);
 
 			// Now set up the states
@@ -33,7 +34,12 @@ var mainApp = angular.module('mainApp', ['disqus', 'ui.router', 'social', 'yaru2
 			.state('posts', {
 				url: "/posts/:articleName",
 				templateUrl: "pages/post.html",
-				controller: "PostsController",
+				controller: "PostsController"
+			})
+			.state('404', {
+				url: "/404",
+				templateUrl: "pages/404.html",
+				controller: "ErrorsController"
 			})
 
 		}

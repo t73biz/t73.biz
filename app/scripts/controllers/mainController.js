@@ -7,7 +7,7 @@
 		function($location, $scope, $state, $window) {
 			$scope.articleList = $window.articleList;
 			$scope.$on('$viewContentLoaded', function(event) {
-		    	$window.ga('send', 'pageview', { page: $location.url() });
+		    	// $window.ga('send', 'pageview', { page: $location.url() });
 			});
 		}
 	]);
