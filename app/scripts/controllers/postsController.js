@@ -15,11 +15,7 @@
 			$scope.contentLoaded = false;
 
 			if($window.articleList.indexOf($stateParams.articleName) == -1) {
-				$scope.post = {
-					title: 'Danger Will Robinson!',
-					tagline: "The widgets have broken! We can't seem to find what you're looking for!",
-					content: 'Try looking in the article list again.'
-				};
+				$state.go('404');
 			} else {
 				$http.get('/articles/' + $stateParams.articleName + '.md')
 				.success(function(data){

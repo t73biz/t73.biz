@@ -1,5 +1,32 @@
-				$scope.post = {
-					title: 'Danger Will Robinson!',
-					tagline: "The widgets have broken! We can't seem to find what you're looking for!",
-					content: 'Try looking in the article list again.'
-				};
+<canvas class="matrix" width="970" height="300"></canvas>
+
+<div class="terminal">
+	<p dir-terminal-type="" on-completion="part2=true">
+	    Neo.
+	</p>
+
+	<p dir-terminal-type="" start-typing="part2" on-completion="part3=true">
+	    Wake Up Neo.
+	</p>
+
+	<p dir-terminal-type="" duration="2000" start-typing="part3" on-completion="part4=true">
+	    You have seen the otherside, and can't find what you are looking for. There is no spoon.
+	</p>
+
+	<p dir-terminal-type="" duration="2000" start-typing="part4" on-completion="showInputForm()">
+	    You have reached the 404 page. Please enter in a new location.
+	</p>
+	  
+	<form ng-submit="textEntered()" duration="1500" start-typing="showform" ng-show="showform">
+		http://t73.biz/<input type="text" ng-model="newUrl" id="newUrl" autofocus >
+	</form>
+	  
+	<p dir-terminal-type="" duration="1500" start-typing="redirect" ng-show="redirect" on-completion="startRedirect()">
+		Redirecting you to http://t73.biz/{{ newUrl }}
+	</p>
+
+	<p dir-terminal-type="" duration="2000" start-typing="home">
+	    Neo. You seem lost. We are sending you home.
+	</p>
+
+</div>
